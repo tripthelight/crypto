@@ -1,3 +1,3 @@
-import "@/assets/scss/common.scss";
+import "@/js/common/common.js";
 
 console.log("init index");

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AES | CRYPTO MODULE</title>
+  </head>
+  <body>
+    <nav>
+      <a href="/">home</a>
+    </nav>
+
+    <h1>AES</h1>
+    <ul class="type-dot">
+      <li>SecretKey로 암호화, 복호화 하는 양방향 암호화 패턴</li>
+      <li>SecretKey를 <span class="bold">backend</span>를 통하지 않고 <span class="bold">client</span>에서만 사용 할 경우, <span class="bold">client</span>에서 SecretKey 노출됨</li>
+      <li>SecretKey bite를 정하지 않을 경우 SecretKey 자유 입력 허용</li>
+      <li>128, 192, 258 bite의 SecretKey 지정 방식</li>
+    </ul>
+
+    <div class="secretKey">
+      <h3>SecretKey</h3>
+      <select>
+        <option value="" selected>SELECT KEY</option>
+        <option value="AES-256">AES-256</option>
+        <option value="AES-192">AES-192</option>
+        <option value="AES-128">AES-128</option>
+      </select>
+    </div>
+
+    <div class="encryption">
+      <h3>Encryption</h3>
+      <p class="ipt-block">
+        <label for="IPT_PLAIN">PLAIN : </label>
+        <input type="text" name="iptPlain" id="IPT_PLAIN" placeholder="평문을 입력하세요." />
+      </p>
+      <p class="ipt-block">
+        <label for="IPT_EN_SECRETKEY">SECRET KEY : </label>
+        <input type="text" name="iptEnSecretKey" id="IPT_EN_SECRETKEY" placeholder="SELECT KEY를 입력하세요" />
+      </p>
+      <button class="btn btn-plain">SET HASH</button>
+      <p class="hash"></p>
+    </div>
+
+    <div class="decryption">
+      <h3>Decryption</h3>
+      <p class="ipt-block">
+        <label for="IPT_HASH">HASH : </label>
+        <input type="text" name="iptHash" id="IPT_HASH" placeholder="HASH를 입력하세요." />
+      </p>
+      <p class="ipt-block">
+        <label for="IPT_DE_SECRETKEY">SECRET KEY : </label>
+        <input type="text" name="iptDeSecretKey" id="IPT_DE_SECRETKEY" placeholder="SELECT KEY를 입력하세요" />
+      </p>
+      <button class="btn btn-decryption">SET PLAIN</button>
+      <p class="plain"></p>
+    </div>
+  </body>
+</html>
