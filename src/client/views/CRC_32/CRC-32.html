@@ -3,15 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WebCrypto | CRYPTO MODULE</title>
+    <title>CRC-32 | CRYPTO MODULE</title>
   </head>
   <body>
     <nav>
       <a href="/">home</a>
-      <a href="/WebCrypto">WebCrypto</a>
     </nav>
 
-    <h1>RSA-OAEP : WebCrypto</h1>
+    <h1>CRC-32</h1>
+
+    <ul class="type-dot">
+      <li>hash 생성 단방향 암호화 : CRC-32</li>
+      <li>hash 생성만 가능</li>
+      <li>같은 평문에 대해 같은 hash 생성됨</li>
+    </ul>
 
     <div class="encryption">
       <h3>Encryption</h3>
@@ -21,16 +26,6 @@
       </div>
       <button class="btn btn-plain">SET HASH</button>
       HASH : <span class="hash"></span>
-    </div>
-
-    <div class="decryption">
-      <h3>Decryption</h3>
-      <div class="ipt-block">
-        <label for="IPT_DE_CHIPER">CHIPER : </label>
-        <input type="text" name="iptDeChiper" id="IPT_DE_CHIPER" placeholder="HASH를 입력하세요" />
-      </div>
-      <button class="btn btn-chiper">DECRYPTION</button>
-      <span class="plain"></span>
     </div>
   </body>
 </html>

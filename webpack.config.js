@@ -16,6 +16,7 @@ export default {
     WebCrypto: "./src/client/js/WebCrypto/WebCrypto.js", // '/WebCrypto' 경로
     AES_GCM: "./src/client/js/WebCrypto/AES-GCM.js", // '/AES-GCM' 경로
     RSA_OAEP: "./src/client/js/WebCrypto/RSA-OAEP.js", // '/RSA-OAEP' 경로
+    CRC_32: "./src/client/js/CRC_32/CRC-32.js", // '/CRC-32' 경로
   },
   output: {
     publicPath: "/",
@@ -81,6 +82,11 @@ export default {
       template: "./src/client/views/WebCrypto/RSA-OAEP.html",
       chunks: ["RSA_OAEP"], // RSA-OAEP.js만 포함
     }),
+    new HtmlWebpackPlugin({
+      filename: "CRC_32.html",
+      template: "./src/client/views/CRC_32/CRC-32.html",
+      chunks: ["CRC_32"], // RSA-OAEP.js만 포함
+    }),
     new MiniCssExtractPlugin({
       filename: "[name].css", // 추출된 CSS 파일명
     }),
@@ -98,6 +104,7 @@ export default {
         { from: /^\/WebCrypto$/, to: "/WebCrypto.html" },
         { from: /^\/AES_GCM$/, to: "/AES_GCM.html" },
         { from: /^\/RSA_OAEP$/, to: "/RSA_OAEP.html" },
+        { from: /^\/CRC_32$/, to: "/CRC_32.html" },
       ],
     },
   },
