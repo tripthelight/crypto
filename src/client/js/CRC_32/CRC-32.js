@@ -19,5 +19,5 @@ EN_PLAIN_BTN.onclick = async () => {
 
   const hash = CRC32.str(plaintext) >>> 0;
 
-  HASH_EL.innerHTML = hash;
+  HASH_EL.innerHTML = hash.toString(16);
 };

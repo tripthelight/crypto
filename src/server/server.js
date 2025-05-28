@@ -18,6 +18,6 @@ app.post("/signup", async (req, res) => {
   res.send("회원가입 완료!");
 });
 
-app.listen(3000, () => {
-  console.log("서버 실행 중 (포트: 3000)");
+app.listen(8000, () => {
+  console.log("서버 실행 중 (포트: 8000)");
 });

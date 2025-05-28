@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WebCrypto | CRYPTO MODULE</title>
+    <title>AES-GCM | WebCrypto | CRYPTO MODULE</title>
   </head>
   <body>
     <nav>
@@ -13,11 +13,15 @@
 
     <h1>AES-GCM : WebCrypto</h1>
 
+    <ul class="type-dot">
+      <li><span class="bold">iv, key</span>가 브라우저 client 코드에 노출됨</li>
+    </ul>
+
     <div class="encryption">
       <h3>Encryption</h3>
       <div class="ipt-block">
         <label for="IPT_EN_PLAIN">PLAIN : </label>
-        <input type="text" name="iptEnPlain" id="IPT_EN_PLAIN" placeholder="평문을 입력하세요" />
+        <input type="text" name="iptEnPlain" id="IPT_EN_PLAIN" placeholder="평문을 입력하세요" autocomplete="off" />
       </div>
       <button class="btn btn-plain">SET HASH</button>
       HASH : <span class="hash"></span>
@@ -33,7 +37,7 @@
       <h3>Decryption</h3>
       <div class="ipt-block">
         <label for="IPT_DE_CHIPER">CHIPER : </label>
-        <input type="text" name="iptDeChiper" id="IPT_DE_CHIPER" placeholder="HASH를 입력하세요" />
+        <input type="text" name="iptDeChiper" id="IPT_DE_CHIPER" placeholder="HASH를 입력하세요" autocomplete="off" />
       </div>
       <button class="btn btn-chiper">DECRYPTION</button>
       <span class="plain"></span>

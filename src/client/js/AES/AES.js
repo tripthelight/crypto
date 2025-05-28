@@ -44,19 +44,19 @@ function makeKeyAES() {
 makeKeyAES();
 ////////////////////////////////////////////////////////////////////
 
-// secretKey
-const SELECT_EL = document.querySelector(".secretKey select");
-
 // Encryption
-const IPT_PLAIN = document.getElementById("IPT_PLAIN");
-const IPT_EN_SECRETKEY = document.getElementById("IPT_EN_SECRETKEY");
 const EN_PLAIN_BTN = document.querySelector(".encryption .btn-plain");
 const HASH_EL = document.querySelector(".encryption .hash");
 
 EN_PLAIN_BTN.onclick = () => {
+  // secretKey
+  const SELECT_EL = document.querySelector(".secretKey select");
   const secrettext = SELECT_EL.value;
+  // Encryption
+  const IPT_PLAIN = document.getElementById("IPT_PLAIN");
   const plaintext = IPT_PLAIN.value;
   if (plaintext === "") return alert("평문을 입력하세요");
+  const IPT_EN_SECRETKEY = document.getElementById("IPT_EN_SECRETKEY");
   const secretKeytext = IPT_EN_SECRETKEY.value;
   if (secretKeytext === "") return alert("key를 입력하세요");
 
@@ -69,15 +69,18 @@ EN_PLAIN_BTN.onclick = () => {
 };
 
 // Decryption
-const IPT_HASH = document.getElementById("IPT_HASH");
-const IPT_DE_SECRETKEY = document.getElementById("IPT_DE_SECRETKEY");
 const DE_DECRYPT_BTN = document.querySelector(".decryption .btn-decryption");
 const PLAIN_EL = document.querySelector(".decryption .plain");
 
 DE_DECRYPT_BTN.onclick = () => {
+  // secretKey
+  const SELECT_EL = document.querySelector(".secretKey select");
   const secrettext = SELECT_EL.value;
+  // Decryption
+  const IPT_HASH = document.getElementById("IPT_HASH");
   const hashtext = IPT_HASH.value;
   if (hashtext === "") return alert("HASH를 입력하세요");
+  const IPT_DE_SECRETKEY = document.getElementById("IPT_DE_SECRETKEY");
   const secretKeytext = IPT_DE_SECRETKEY.value;
   if (secretKeytext === "") return alert("key를 입력하세요");
 

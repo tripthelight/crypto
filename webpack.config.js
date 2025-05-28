@@ -2,6 +2,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import TerserPlugin from "terser-webpack-plugin";
 
 // __dirname 재정의
 const __filename = fileURLToPath(import.meta.url);
@@ -17,6 +18,7 @@ export default {
     AES_GCM: "./src/client/js/WebCrypto/AES-GCM.js", // '/AES-GCM' 경로
     RSA_OAEP: "./src/client/js/WebCrypto/RSA-OAEP.js", // '/RSA-OAEP' 경로
     CRC_32: "./src/client/js/CRC_32/CRC-32.js", // '/CRC-32' 경로
+    storage: "./src/client/js/storage/storage.js", // '/storage' 경로
   },
   output: {
     publicPath: "/",
@@ -87,6 +89,11 @@ export default {
       template: "./src/client/views/CRC_32/CRC-32.html",
       chunks: ["CRC_32"], // RSA-OAEP.js만 포함
     }),
+    new HtmlWebpackPlugin({
+      filename: "storage.html",
+      template: "./src/client/views/storage/storage.html",
+      chunks: ["storage"], // storage.js만 포함
+    }),
     new MiniCssExtractPlugin({
       filename: "[name].css", // 추출된 CSS 파일명
     }),
@@ -105,6 +112,7 @@ export default {
         { from: /^\/AES_GCM$/, to: "/AES_GCM.html" },
         { from: /^\/RSA_OAEP$/, to: "/RSA_OAEP.html" },
         { from: /^\/CRC_32$/, to: "/CRC_32.html" },
+        { from: /^\/storage$/, to: "/storage.html" },
       ],
     },
   },
@@ -113,5 +121,20 @@ export default {
     alias: {
       "@": path.resolve(__dirname, "src/client"),
     },
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          format: {
+            comments: false, // 주석 제거
+          },
+          compress: true, // 압축 최적화
+          mangle: true, // 난독화
+        },
+        extractComments: false, // 별도의 LICENSE 파일 생성 방지
+      }),
+    ],
   },
 };
