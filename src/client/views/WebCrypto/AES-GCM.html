@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebCrypto | CRYPTO MODULE</title>
+  </head>
+  <body>
+    <nav>
+      <a href="/">home</a>
+      <a href="/WebCrypto">WebCrypto</a>
+    </nav>
+
+    <h1>AES-GCM : WebCrypto</h1>
+
+    <div class="encryption">
+      <h3>Encryption</h3>
+      <div class="ipt-block">
+        <label for="IPT_EN_PLAIN">PLAIN : </label>
+        <input type="text" name="iptEnPlain" id="IPT_EN_PLAIN" placeholder="평문을 입력하세요" />
+      </div>
+      <button class="btn btn-plain">SET HASH</button>
+      HASH : <span class="hash"></span>
+    </div>
+
+    <div class="generateKey">
+      <h3>Generate Key</h3>
+      <p class="iv">iv : <span></span></p>
+      <p class="key">key : <span></span></p>
+    </div>
+
+    <div class="decryption">
+      <h3>Decryption</h3>
+      <div class="ipt-block">
+        <label for="IPT_DE_CHIPER">CHIPER : </label>
+        <input type="text" name="iptDeChiper" id="IPT_DE_CHIPER" placeholder="HASH를 입력하세요" />
+      </div>
+      <button class="btn btn-chiper">DECRYPTION</button>
+      <span class="plain"></span>
+    </div>
+  </body>
+</html>

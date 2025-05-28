@@ -13,6 +13,9 @@ export default {
     main: "./src/client/js/index.js", // '/' 경로
     bcryptjs: "./src/client/js/bcryptjs/bcryptjs.js", // '/bcrypt' 경로
     AES: "./src/client/js/AES/AES.js", // '/AES' 경로
+    WebCrypto: "./src/client/js/WebCrypto/WebCrypto.js", // '/WebCrypto' 경로
+    AES_GCM: "./src/client/js/WebCrypto/AES-GCM.js", // '/AES-GCM' 경로
+    RSA_OAEP: "./src/client/js/WebCrypto/RSA-OAEP.js", // '/RSA-OAEP' 경로
   },
   output: {
     publicPath: "/",
@@ -61,7 +64,22 @@ export default {
     new HtmlWebpackPlugin({
       filename: "AES.html",
       template: "./src/client/views/AES/AES.html",
-      chunks: ["AES"], // bcrypt.js만 포함
+      chunks: ["AES"], // AES.js만 포함
+    }),
+    new HtmlWebpackPlugin({
+      filename: "WebCrypto.html",
+      template: "./src/client/views/WebCrypto/WebCrypto.html",
+      chunks: ["WebCrypto"], // WebCrypto.js만 포함
+    }),
+    new HtmlWebpackPlugin({
+      filename: "AES_GCM.html",
+      template: "./src/client/views/WebCrypto/AES-GCM.html",
+      chunks: ["AES_GCM"], // AES-GCM.js만 포함
+    }),
+    new HtmlWebpackPlugin({
+      filename: "RSA_OAEP.html",
+      template: "./src/client/views/WebCrypto/RSA-OAEP.html",
+      chunks: ["RSA_OAEP"], // RSA-OAEP.js만 포함
     }),
     new MiniCssExtractPlugin({
       filename: "[name].css", // 추출된 CSS 파일명
@@ -74,9 +92,12 @@ export default {
     open: false,
     historyApiFallback: {
       rewrites: [
+        { from: /^\/$/, to: "/index.html" },
         { from: /^\/bcryptjs$/, to: "/bcryptjs.html" },
         { from: /^\/AES$/, to: "/AES.html" },
-        { from: /^\/$/, to: "/index.html" },
+        { from: /^\/WebCrypto$/, to: "/WebCrypto.html" },
+        { from: /^\/AES_GCM$/, to: "/AES_GCM.html" },
+        { from: /^\/RSA_OAEP$/, to: "/RSA_OAEP.html" },
       ],
     },
   },
