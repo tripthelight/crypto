@@ -18,6 +18,7 @@ export default {
     AES_GCM: "./src/client/js/WebCrypto/AES-GCM.js", // '/AES-GCM' 경로
     RSA_OAEP: "./src/client/js/WebCrypto/RSA-OAEP.js", // '/RSA-OAEP' 경로
     CRC_32: "./src/client/js/CRC_32/CRC-32.js", // '/CRC-32' 경로
+    imageToBase64: "./src/client/js/imageToBase64/imageToBase64.js", // '/storage' 경로
     storage: "./src/client/js/storage/storage.js", // '/storage' 경로
   },
   output: {
@@ -94,6 +95,11 @@ export default {
       template: "./src/client/views/storage/storage.html",
       chunks: ["storage"], // storage.js만 포함
     }),
+    new HtmlWebpackPlugin({
+      filename: "imageToBase64.html",
+      template: "./src/client/views/imageToBase64/imageToBase64.html",
+      chunks: ["imageToBase64"], // imageToBase64.js만 포함
+    }),
     new MiniCssExtractPlugin({
       filename: "[name].css", // 추출된 CSS 파일명
     }),
@@ -112,6 +118,7 @@ export default {
         { from: /^\/AES_GCM$/, to: "/AES_GCM.html" },
         { from: /^\/RSA_OAEP$/, to: "/RSA_OAEP.html" },
         { from: /^\/CRC_32$/, to: "/CRC_32.html" },
+        { from: /^\/imageToBase64$/, to: "/imageToBase64.html" },
         { from: /^\/storage$/, to: "/storage.html" },
       ],
     },
